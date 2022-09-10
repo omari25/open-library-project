@@ -12,10 +12,13 @@ function Addnew() {
     function handleSbmit(e) {
         e.preventDefault();
         const items = {
-            name: author,
-            books: [{title: title, thumbnail: image_link, pagecount: pages, description: description}]
+            title: title, 
+            thumbnail: image_link, 
+            pagecount: pages, 
+            description: description,
+            author_id: author
         }
-        fetch("http://localhost:9292/books", {
+        fetch("https://library-app-omar.herokuapp.com/books/only", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -32,7 +35,7 @@ function Addnew() {
                 
                 <div><input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)}/></div>
 
-                <div><input type="text" placeholder="Author Name" value={author} onChange={(e) => setAuthor(e.target.value)}/></div>
+                <div><input type="number" placeholder="Author ID" min="1" max="6" value={author} onChange={(e) => setAuthor(e.target.value)}/></div>
 
                 <div><input type="text" placeholder="Image_url" value={image_link} onChange={(e) => setImage(e.target.value)}/></div>
 
