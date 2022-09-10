@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Oxygen', sans-serif;
 }
 
 body {
@@ -27,13 +28,6 @@ body {
     border-bottom: 2px solid #364626;
 }
 
-
-
-
-
-
-
-
 .home{
     border: 2px solid black;
     padding: 50px;
@@ -52,6 +46,11 @@ body {
     height: auto;
 }
 
+.home p {
+    width: 80%;
+    margin-bottom: 2vh;
+}
+
 .home button{
     border: none;
     width: 120px;
@@ -66,13 +65,6 @@ body {
     cursor: pointer;
     opacity: 1;
 }
-
-
-
-
-
-
-
 
 .books{
     padding: 3vw 3vw;
@@ -132,33 +124,6 @@ body {
     cursor: pointer;
     opacity: 1;
 }
-
-
-
-
-
-
-
-
-
-
-
-/* 
-.books-desriptions{
-    
-} */
-
-
-
-
-
-
-
-
-
-
-
-
 
 .new-form {
     margin: auto;
