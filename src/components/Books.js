@@ -5,12 +5,19 @@ function Books() {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-      fetch("http://localhost:9292/books")
+      fetch("https://library-app-omar.herokuapp.com/books")
       .then(response => response.json())
       .then((data) => {
         setItems(data)
       })
     }, [])
+
+    function handleDelete(id){
+            fetch(`https://library-app-omar.herokuapp.com/books/only${id}`, {
+                method: "DELETE"
+            })
+            .then(setItems(items.filter(item => item.id !== id)))
+    }
         
     return (
         <div className="books">
@@ -22,13 +29,8 @@ function Books() {
                         <p><span className="auhtor-span">Author: </span>{dta.name}</p>
                         <p><span className="auhtor-span">Pages: </span>{dt.pagecount}</p>
                         <div className="btn-divs">
-                            <button className="delete-btn" 
-                            onClick={()=>(
-                                fetch(`http://localhost:9292/books${dta.id}`,{
-                                    method: "DELETE"
-                                })
-                            )}
-                            >Delete</button>
+                            <button className="delete-btn"
+                            onClick={() => handleDelete(dt.id)}>Delete</button>
                         </div>
                     </div>
                 ))
